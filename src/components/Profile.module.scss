@@ -1,0 +1,15 @@
+.profile {
+  grid-area: c;
+  background-color: #222222;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  &__post {
+    &__item {
+      color: #e1e3e6;
+    }
+  }
+}
