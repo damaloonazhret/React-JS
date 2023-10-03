@@ -1,9 +1,8 @@
 .post {
-  &__item {
-    color: #e1e3e6;
-
-    img {
-      width: 50px;
-    }
+  &__block {
+    padding: 10px;
+  }
+  &__add {
+    padding: 10px 0 10px 0 ;
   }
 }
