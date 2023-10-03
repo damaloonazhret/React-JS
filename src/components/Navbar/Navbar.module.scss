@@ -8,16 +8,22 @@
     justify-content: center;
     padding: 10px 0 10px 0;
 
-    &.active {
-      a {
-        color: #9268d5;
-
-      }
-    }
+    //&.active {
+    //  a {
+    //    color: #9268d5;
+    //  }
+    //}
 
     a {
       color: #e1e3e6;
       text-decoration: none;
+      &.active {
+        color: #9268d5;
+      }
+      &.not-active {
+
+      color: #e1e3e6;
+      }
     }
 
   }
