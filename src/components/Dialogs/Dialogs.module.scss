@@ -1,13 +1,20 @@
 .dialogs {
   display: grid;
   grid-template-columns: 1fr 10fr;
+
   &__items {
 
   }
 
   &__item {
+    a {
+      color: whitesmoke;
+    }
+
     &.active {
-      color: #b78dff;
+      a {
+        color: #38ff00;
+      }
     }
   }
 
