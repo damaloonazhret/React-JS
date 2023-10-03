@@ -1,12 +1,12 @@
 import s from './Post.module.scss'
 
-const Post = () => {
+const Post = (props) => {
     return (
         <div className={s.item}>
             <img src="https://klike.net/uploads/posts/2023-01/1673594987_3-24.jpg" alt=""/>
-            post 1
+            {props.message}
             <div>
-                <span>like</span>
+                <span>like count {props.like}</span>
             </div>
         </div>
     )
