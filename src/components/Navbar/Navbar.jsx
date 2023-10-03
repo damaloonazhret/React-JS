@@ -4,19 +4,19 @@ const Navbar = () => {
     return (
         <nav className={s.nav}>
             <div className={`${s.nav__item} ${s.active}`}>
-                <a href='google.com'>Profile</a>
+                <a href='/profile'>Profile</a>
             </div>
             <div className={s.nav__item}>
-                <a href='google.com'>Messages</a>
+                <a href='/dialogs'>Messages</a>
             </div>
             <div className={s.nav__item}>
-                <a href='google.com'>News</a>
+                <a href='/news'>News</a>
             </div>
             <div className={s.nav__item}>
-                <a href='google.com'>Music</a>
+                <a href='/music'>Music</a>
             </div>
             <div className={s.nav__item}>
-                <a href='google.com'>Settings</a>
+                <a href='/settings'>Settings</a>
             </div>
         </nav>
     )
