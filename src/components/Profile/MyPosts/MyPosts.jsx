@@ -12,6 +12,8 @@ const MyPosts = () => {
         {id: 5, message: 'Yoooooouuuuu', like: 12},
     ]
 
+    let postsElements = postData.map(post => <Post message={post.message} likes={post.like}/>)
+
     return (
         <div className={s.post__block}>
             <h3>My posts</h3>
@@ -23,10 +25,7 @@ const MyPosts = () => {
                 <button>Remove post</button>
             </div>
             <div className={s.post}>
-                <Post message='Hi, how are you?' like='4'/>
-                <Post message={`It's my first post`} like='1'/>
-                <Post message='La la la?' like='2'/>
-                <Post message='Bla bla bla?' like='3'/>
+                {postsElements}
             </div>
         </div>
     )
