@@ -1,9 +1,11 @@
 import s from './Dialogs.module.scss'
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
-import {dialogs, messages} from "../../index";
 
 const Dialogs = (props) => {
+
+    let dialogs = props.dialogs;
+    let messages = props.messages;
 
     let dialogsElements = dialogs.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>);
     let messagesElements = messages.map(message => <Message message={message.message}/>);

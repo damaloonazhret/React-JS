@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-export let postData = [
+let postData = [
     {id: 1, message: 'Hi, how are you?', like: 18},
     {id: 2, message: `It's my first post`, like: 11},
     {id: 3, message: 'La la la?', like: 12},
@@ -13,7 +13,7 @@ export let postData = [
     {id: 5, message: 'Yoooooouuuuu', like: 12},
 ]
 
-export let dialogs = [
+let dialogs = [
     {id: 1, name: 'Andrey'},
     {id: 2, name: 'Onfire'},
     {id: 3, name: 'John'},
@@ -22,7 +22,7 @@ export let dialogs = [
     {id: 5, name: 'Severniy'},
 ]
 
-export let messages = [
+let messages = [
     {id: 1, message: 'Hi'},
     {id: 2, message: 'How are you?'},
     {id: 3, message: 'John'},
@@ -34,7 +34,7 @@ export let messages = [
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App messages={messages} dialogs={dialogs} postData={postData}/>
   </React.StrictMode>
 );
 

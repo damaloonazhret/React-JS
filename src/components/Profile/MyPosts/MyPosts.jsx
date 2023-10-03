@@ -1,8 +1,9 @@
 import s from "./MyPosts.module.scss";
 import Post from "./Post/Post";
-import {postData} from "../../../index";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+
+    let postData = props.postData;
 
     let postsElements = postData.map(post => <Post message={post.message} likes={post.like}/>)
 
