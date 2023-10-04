@@ -29,4 +29,15 @@ let state = {
     },
 }
 
+export let addPost = (postMessage) => {
+    debugger
+    const newPost = {
+        id: 6,
+        message: postMessage,
+        like: 3,
+    };
+
+    state.dialogPage.messages.push(newPost);
+}
+
 export default state;
