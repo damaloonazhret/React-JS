@@ -1,18 +1,24 @@
 import React from "react";
+import {updateNewMessageText} from "../../../Redux/state";
 
-export const newMessageElement = React.createRef();
+const AddMessage = (props) => {
+// debugger
+    const newMessageElement = React.createRef();
 
-export const addMessage = () => {
-    const message = newMessageElement.current.value;
-    console.log(message)
-}
+    const addMessage = () => {
+        props.addMessage()
+    }
 
-const AddMessage = () => {
+    const onMessageChange = () => {
+        const text = newMessageElement.current.value;
+        props.updateNewMessageText(text);
+    }
+
     return (
         <div>
-            <textarea ref={newMessageElement} cols="20" rows="3"></textarea>
+            <textarea onChange={onMessageChange} ref={newMessageElement} value={props.newMessageText} cols="20" rows="3"></textarea>
             <div>
-                <button onClick={ addMessage }>Add message</button>
+                <button onClick={addMessage}>Add message</button>
             </div>
         </div>
     )

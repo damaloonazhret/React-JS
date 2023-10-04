@@ -1,6 +1,7 @@
 import s from '../Dialogs.module.scss'
 
 const Message = (props) => {
+    // debugger
     let message = props.message;
     let messageOut = props.messageOut;
     return (

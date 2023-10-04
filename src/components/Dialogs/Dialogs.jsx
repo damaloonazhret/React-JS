@@ -3,23 +3,34 @@ import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
 import React from "react";
 import AddMessage from "./Message/AddMessage";
+import {updateNewMessageText} from "../../Redux/state";
 
 const Dialogs = (props) => {
+    // debugger
     let dialogs = props.state.dialogs;
-    let messages = props.state.posts;
+    let messages = props.state.messages;
+    let messagesOut = props.state.messagesOut;
 
     let dialogsElements = dialogs.map(dialog => <DialogItem name={dialog.name} id={dialog.id} src={dialog.src}/>);
-    let messagesElements = messages.map(message => <Message message={message.message}
-                                                            messageOut={message.messageOut}/>);
-
+    let messagesElements = messages.map(message => <Message message={message.message}/>);
+    let messagesOutElements = messagesOut.map(message => <Message message={message.messageOut}/>);
     return (
         <div className={s.dialogs}>
             <div className={s.dialogs__items}>
                 {dialogsElements}
             </div>
             <div className={s.dialogs__messages}>
-                {messagesElements}
-                <AddMessage/>
+                <div>
+                    {messagesElements}
+                    <AddMessage
+                        addMessage={props.addMessage}
+                        updateNewMessageText={props.updateNewMessageText}
+                        newMessageText={props.state.newMessageText}/>
+                </div>
+                <div>
+                    {messagesOutElements}
+                    <AddMessage/>
+                </div>
             </div>
         </div>
     )
