@@ -7,6 +7,15 @@
   }
 
   &__item {
+    display: grid;
+    grid-template-columns: 4fr 5fr;
+    align-items: center;
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
     a {
       color: whitesmoke;
       text-decoration: none;
@@ -20,10 +29,11 @@
   }
 
   &__messages {
-
   }
 
   &__message {
+    display: grid;
+    grid-template-columns: 5fr 5fr;
 
   }
 }

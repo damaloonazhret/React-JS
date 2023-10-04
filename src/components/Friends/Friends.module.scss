@@ -1,0 +1,17 @@
+.friends {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  div {
+    display: grid;
+    justify-items: center;
+    span {
+      color: whitesmoke;
+    }
+  }
+  &__container {
+    display: grid;
+    justify-items: center;
+    row-gap: 20px;
+  }
+}
