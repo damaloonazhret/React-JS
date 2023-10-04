@@ -2,7 +2,6 @@ import s from './Friend.module.scss'
 
 const Friend = (props) => {
     const state = props.state;
-    console.log(state)
     return (
         <div className={s.friend}>
             <img src={state.src} alt="a"/>

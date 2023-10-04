@@ -11,7 +11,11 @@ let state = {
             {id: 5, message: 'Yoooooouuuuu', messageOut: 'Chi da'},
         ],
         dialogs: [
-            {id: 1, name: 'Andrey', src: 'https://pixelbox.ru/wp-content/uploads/2022/08/avatar-boy-telegram-pixelbox.ru-76.jpg'},
+            {
+                id: 1,
+                name: 'Andrey',
+                src: 'https://pixelbox.ru/wp-content/uploads/2022/08/avatar-boy-telegram-pixelbox.ru-76.jpg'
+            },
             {id: 2, name: 'Onfire', src: 'https://pic.rutubelist.ru/video/46/b2/46b25de0bf3d3fa60a22037e55071354.jpg'},
             {id: 3, name: 'John', src: 'https://shapka-youtube.ru/wp-content/uploads/2020/12/man-ava1.jpg'},
             {id: 4, name: 'Kosmodrom', src: 'https://pixelbox.ru/wp-content/uploads/2020/12/ava-vk-cats-90.jpg'},
@@ -28,17 +32,23 @@ let state = {
             {id: 5, message: 'Yooo', like: 14},
             {id: 5, message: 'Yoooooo', like: 12},
         ],
+        newPostText: 'Itititfasdfit',
     },
 }
 
-export let addPost = (postMessage) => {
+export const addPost = () => {
     const newPost = {
         id: 6,
-        message: postMessage,
+        message: state.dialogPage.newPostText,
         like: 3,
     };
-
     state.dialogPage.messages.push(newPost);
+    state.dialogPage.newPostText = '';
+    rerenderEntireTree(state);
+}
+
+export const updateNewPostText = (newText) => {
+    state.dialogPage.newPostText = newText;
     rerenderEntireTree(state);
 }
 
