@@ -8,7 +8,6 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
-import {updateNewMessageText} from "./Redux/state";
 
 const App = (props) => {
     // debugger
@@ -22,7 +21,7 @@ const App = (props) => {
                         <Route path="/dialogs/*" element={<Dialogs
                             state={props.state.dialogsPage}
                             addMessage={props.addMessage}
-                            updateNewMessageText={updateNewMessageText}/>}/>
+                            updateNewMessageText={props.updateNewMessageText}/>}/>
                         <Route path="/profile" element={
                             <Profile state={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>
                         }/>
