@@ -3,12 +3,13 @@ import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
 import React from "react";
 import AddMessage from "./Message/AddMessage";
+import AddMessageContainer from "./Message/AddMessageContainer";
 
 const Dialogs = (props) => {
-    // debugger
-    let dialogs = props.state.dialogs;
-    let messages = props.state.messages;
-    let messagesOut = props.state.messagesOut;
+    const state = props.store.getState().dialogsPage;
+    let dialogs = state.dialogs;
+    let messages = state.messages;
+    let messagesOut = state.messagesOut;
 
     let dialogsElements = dialogs.map(dialog => <DialogItem name={dialog.name} id={dialog.id} src={dialog.src}/>);
     let messagesElements = messages.map(message => <Message message={message.message}/>);
@@ -21,10 +22,7 @@ const Dialogs = (props) => {
             <div className={s.dialogs__messages}>
                 <div>
                     {messagesElements}
-                    <AddMessage
-                        addMessage={props.addMessage}
-                        newMessageText={props.state.newMessageText}
-                        dispatch={props.dispatch}/>
+                    <AddMessageContainer store={props.store}/>
                 </div>
                 <div>
                     {messagesOutElements}
