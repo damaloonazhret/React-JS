@@ -22,7 +22,8 @@ const Dialogs = (props) => {
             <div className={s.dialogs__messages}>
                 <div>
                     {messagesElements}
-                    <AddMessageContainer store={props.store}/>
+                    {/*<AddMessageContainer store={props.store}/>*/}
+                    <AddMessageContainer/>
                 </div>
                 <div>
                     {messagesOutElements}
