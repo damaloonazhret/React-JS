@@ -3,7 +3,6 @@ import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
 import React from "react";
 import AddMessage from "./Message/AddMessage";
-import {updateNewMessageText} from "../../Redux/state";
 
 const Dialogs = (props) => {
     // debugger
@@ -24,8 +23,8 @@ const Dialogs = (props) => {
                     {messagesElements}
                     <AddMessage
                         addMessage={props.addMessage}
-                        updateNewMessageText={props.updateNewMessageText}
-                        newMessageText={props.state.newMessageText}/>
+                        newMessageText={props.state.newMessageText}
+                        dispatch={props.dispatch}/>
                 </div>
                 <div>
                     {messagesOutElements}
