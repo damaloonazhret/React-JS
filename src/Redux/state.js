@@ -1,3 +1,7 @@
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import navbarFriendsReducer from "./navbarFriendsReducer";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_MESSAGE = 'ADD-MESSAGE';
@@ -52,7 +56,11 @@ let store = {
                     name: 'Onfire',
                     src: 'https://pic.rutubelist.ru/video/46/b2/46b25de0bf3d3fa60a22037e55071354.jpg'
                 },
-                {id: 3, name: 'John', src: 'https://shapka-youtube.ru/wp-content/uploads/2020/12/man-ava1.jpg'},
+                {
+                    id: 3,
+                    name: 'John',
+                    src: 'https://shapka-youtube.ru/wp-content/uploads/2020/12/man-ava1.jpg'
+                },
             ]
         },
         profilePage: {
@@ -72,7 +80,7 @@ let store = {
     },
 
     getState() {
-        // debugger
+        debugger
         return this._state;
     },
     subscribe(observer) {
@@ -80,35 +88,10 @@ let store = {
     },
 
     dispatch(action) {
-        switch (action.type) {
-            case ADD_POST:
-                const newPost = {
-                    id: 6,
-                    message: this._state.profilePage.newPostText,
-                    like: 3,
-                };
-                this._state.profilePage.messages.push(newPost);
-                this._state.profilePage.newPostText = '';
-                this._callSubscriber(this._state);
-                break
-            case UPDATE_NEW_POST_TEXT:
-                this._state.profilePage.newPostText = action.newText;
-                this._callSubscriber(this._state);
-                break
-            case ADD_MESSAGE:
-                const newMessage = {
-                    id: 6,
-                    message: this._state.dialogsPage.newMessageText,
-                }
-                this._state.dialogsPage.messages.push(newMessage);
-                this._state.dialogsPage.newMessageText = '';
-                this._callSubscriber(this._state);
-                break
-            case UPDATE_NEW_MESSAGE_TEXT:
-                this._state.dialogsPage.newMessageText = action.newText;
-                this._callSubscriber(this._state);
-        }
-
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        // this._state.navbarFriends = navbarFriendsReducer(this._state.navbarFriends, action);
+        this._callSubscriber(this._state);
     }
 }
 
