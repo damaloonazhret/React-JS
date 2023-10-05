@@ -2,7 +2,6 @@ const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
 const dialogsReducer = (state, action) => {
-        debugger
     switch (action.type) {
         case ADD_MESSAGE:
             const newMessage = {
@@ -11,15 +10,18 @@ const dialogsReducer = (state, action) => {
             }
             state.messages.push(newMessage);
             state.newMessageText = '';
-            // this._callSubscriber(this._state);
             break
         case UPDATE_NEW_MESSAGE_TEXT:
             state.newMessageText = action.newText;
             break
-        // this._callSubscriber(this._state);
         default:
             return state;
     }
+    return state;
 }
+
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
+
+export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
 
 export default dialogsReducer;

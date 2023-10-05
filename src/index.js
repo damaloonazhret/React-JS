@@ -8,7 +8,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const rerenderEntireTree = (state) => {
-    debugger
+    // debugger
     root.render(
         <React.StrictMode>
             <App state={store.getState()} dispatch={store.dispatch.bind(store)}/>

@@ -11,7 +11,6 @@ const profileReducer = (state, action) => {
             };
             state.messages.push(newPost);
             state.newPostText = '';
-            // this._callSubscriber(this._state);
             break
         case UPDATE_NEW_POST_TEXT:
             state.newPostText = action.newText;
@@ -19,7 +18,11 @@ const profileReducer = (state, action) => {
         default:
             return state;
     }
-
+    return state;
 }
+
+export const addPostActionCreator = () => ({type: ADD_POST})
+
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
 export default profileReducer;
