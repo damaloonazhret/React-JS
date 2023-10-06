@@ -1,7 +1,7 @@
 import React from "react";
 
 const AddMessage = (props) => {
-// debugger
+debugger
     const newMessageElement = React.createRef();
 
     const addMessage = () => {

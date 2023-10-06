@@ -8,7 +8,7 @@ import App from './App';
 import {Provider} from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const rerenderEntireTree = () => {
+// const rerenderEntireTree = () => {
     // debugger
     root.render(
         <React.StrictMode>
@@ -18,13 +18,14 @@ const rerenderEntireTree = () => {
             </Provider>
         </React.StrictMode>
     );
-}
+// }
 
-rerenderEntireTree(store.getState())
+// rerenderEntireTree(store.getState())
+// rerenderEntireTree();
 
-store.subscribe(() => {
-    const state = store.getState();
-    rerenderEntireTree(state)
-})
+// store.subscribe(() => {
+//     const state = store.getState();
+//     rerenderEntireTree(state)
+// })
 
 reportWebVitals();

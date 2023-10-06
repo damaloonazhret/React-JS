@@ -30,6 +30,7 @@ import {connect} from "react-redux";
 // }
 
 const mapStateToProps = (state) => {
+    // debugger
     return {
         newMessage: state.dialogsPage.newMessageText,
         dialogs: state.dialogsPage
