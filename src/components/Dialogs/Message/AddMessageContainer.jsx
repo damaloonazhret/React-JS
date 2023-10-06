@@ -2,6 +2,7 @@ import React from "react";
 import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../../Redux/dialogsReducer";
 import AddMessage from "./AddMessage";
 import {connect} from "react-redux";
+import {updateNewPostTextActionCreator} from "../../../Redux/profileReducer";
 
 
 // const AddMessageContainer = () => {
@@ -33,13 +34,14 @@ const mapStateToProps = (state) => {
     // debugger
     return {
         newMessage: state.dialogsPage.newMessageText,
-        dialogs: state.dialogsPage
+        dialogsPage: state.dialogsPage
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         updateNewMessageTextActionCreator: (text) => {
-            dispatch(updateNewMessageTextActionCreator(text));
+            const action = updateNewMessageTextActionCreator(text);
+            dispatch(action);
         },
         sendMessage: () => {
             dispatch(addMessageActionCreator())
