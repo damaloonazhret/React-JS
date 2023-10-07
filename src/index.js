@@ -8,24 +8,13 @@ import App from './App';
 import {Provider} from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// const rerenderEntireTree = () => {
-    // debugger
-    root.render(
-        <React.StrictMode>
-            <Provider store={store}>
-                <App store={store} state={store.getState()} dispatch={store.dispatch.bind(store)}/>
-                {/*<App store={store}/>*/}
-            </Provider>
-        </React.StrictMode>
-    );
-// }
-
-// rerenderEntireTree(store.getState())
-// rerenderEntireTree();
-
-// store.subscribe(() => {
-//     const state = store.getState();
-//     rerenderEntireTree(state)
-// })
+root.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <App store={store} state={store.getState()} dispatch={store.dispatch.bind(store)}/>
+            {/*<App store={store}/>*/}
+        </Provider>
+    </React.StrictMode>
+);
 
 reportWebVitals();
