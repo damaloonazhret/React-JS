@@ -9,6 +9,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 const App = (props) => {
     // debugger
@@ -22,7 +23,7 @@ const App = (props) => {
                         <Route path="/dialogs/*" element={
                         <Dialogs store={props.store}/>}/>
                         <Route path="/profile" element={
-                            <Profile/>
+                            <ProfileContainer/>
                         }/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/music" element={<Music/>}/>
