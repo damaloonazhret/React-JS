@@ -1,5 +1,18 @@
 .description {
   &__block {
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    img {
+      width: 200px;
+      object-fit: cover;
+    }
+    div {
+      span {
+        font-weight: bold;
+        color: #6b3db4;
+      }
+    }
   }
 }
