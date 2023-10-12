@@ -20,11 +20,10 @@ const UsersReducers = (state = initialState, action) => {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId) {
-                        console.log('true')
                         return {...u, followed: true}
                     } else {
-                        console.log('false')
-                        console.log(u.id, action.userId)
+                        // console.log('false')
+                        // console.log(u.id, action.userId)
                     }
                     return u;
                 })
@@ -34,10 +33,10 @@ const UsersReducers = (state = initialState, action) => {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId) {
-                        console.log('true')
+                        // console.log('true')
                         return {...u, followed: false}
                     } else {
-                        console.log('false')
+                        // console.log('false')
                     }
                     return u;
                 })

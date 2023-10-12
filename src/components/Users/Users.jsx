@@ -2,6 +2,7 @@ import React from "react";
 import s from "./Users.module.scss";
 import userPhoto from "../../assets/img/user.png";
 import {NavLink} from "react-router-dom";
+import axios from "axios";
 
 const Users = (props) => {
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -32,10 +33,33 @@ const Users = (props) => {
                             <div>
                                 {u.followed
                                     ? <button onClick={() => {
-                                        props.unFollow(u.id)
+
+                                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                            withCredentials: true,
+                                            headers: {
+                                                "API-KEY": "f2059e91-379b-4bab-82a6-ba98c8e84db1"
+                                            }
+                                        })
+                                            .then(r => {
+                                                if (r.data.resultCode === 0) {
+                                                    props.unFollow(u.id)
+                                                }
+                                            })
+
                                     }}>Unfollow</button>
                                     : <button onClick={() => {
-                                        props.follow(u.id)
+
+                                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                            withCredentials: true,
+                                            headers: {
+                                                "API-KEY": "f2059e91-379b-4bab-82a6-ba98c8e84db1"
+                                            }
+                                        })
+                                            .then(r => {
+                                                if (r.data.resultCode === 0) {
+                                                    props.follow(u.id)
+                                                }
+                                            })
                                     }}>Follow</button>}
                             </div>
                         </span>
