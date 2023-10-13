@@ -8,17 +8,17 @@ import {
     useNavigate,
     useParams,
 } from "react-router-dom";
-
+import {profileAPI} from "../../api/api";
 
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
         let userId = this.props.router.params.userId;
         if (!userId) userId = 2;
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-
-            .then(r => {
-                this.props.setUserProfile(r.data)
+        // axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+        profileAPI.getProfile(userId)
+            .then(data => {
+                this.props.setUserProfile(data)
             })
     }
 
