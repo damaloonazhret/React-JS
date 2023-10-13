@@ -30,10 +30,6 @@ export const profileAPI = {
 export const headerAPI = {
     authMe() {
         return instance.get(`auth/me`)
-            .then(r => {
-                if (r.data.resultCode === 0) {
-                    return r.data.data;
-                }
-            });
+            .then(r => r);
     }
 }

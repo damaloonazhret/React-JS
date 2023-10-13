@@ -1,5 +1,6 @@
 import React from "react";
 import Message from "./Message";
+import {Navigate} from "react-router-dom";
 
 const AddMessage = (props) => {
     const newMessageElement = React.createRef();
@@ -14,7 +15,9 @@ const AddMessage = (props) => {
         const text = newMessageElement.current.value;
         props.updateNewMessageTextActionCreator(text);
     }
-// debugger
+
+    if (!props.isAuth) return <Navigate to={'/login'}/>
+
     return (
         <div>
             {messagesElements}
