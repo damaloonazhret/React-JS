@@ -4,6 +4,7 @@ import AddMessage from "./AddMessage";
 import {connect} from "react-redux";
 import {Navigate} from "react-router-dom";
 import {withAuthRedirect} from "../../../HOC/withAuthRedirect";
+import {compose} from "redux";
 
 const mapStateToProps = (state) => {
     // debugger
@@ -26,6 +27,12 @@ const mapDispatchToProps = (dispatch) => {
 
 const AuthRedirectComponent = withAuthRedirect(AddMessage)
 
-const AddMessageContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(AuthRedirectComponent)
 
-export default AddMessageContainer;
+
+// const AddMessageContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
+//
+// export default AddMessageContainer;
