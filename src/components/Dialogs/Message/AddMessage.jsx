@@ -16,8 +16,6 @@ const AddMessage = (props) => {
         props.updateNewMessageTextActionCreator(text);
     }
 
-    if (!props.isAuth) return <Navigate to={'/login'}/>
-
     return (
         <div>
             {messagesElements}
