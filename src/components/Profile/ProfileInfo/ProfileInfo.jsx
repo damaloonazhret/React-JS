@@ -23,7 +23,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.description__block}>
                 <img src={profile.photos.large} alt=""/>
-                <ProfileStatus status={'Hello my friends'}/>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
                 <h1>My name is {profile.fullName}</h1>
                 <div><span>About me: </span> {profile.aboutMe}</div>
                 <div><span>Website: </span> {website ? website : 'Сайтик отсутствует'}</div>
