@@ -1,6 +1,22 @@
 import s from "./MyPosts.module.scss";
 import Post from "./Post/Post";
 import React from "react";
+import {Field, reduxForm} from "redux-form";
+
+let AddNewPostForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit} className={s.post__add}>
+            <div>
+                <Field component={'textarea'} name={'newPostText'}/>
+                {/*<textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>*/}
+            </div>
+            {/*<button onClick={onAddPost}>Add post</button>*/}
+            <button>Add post</button>
+        </form>
+    )
+}
+
+AddNewPostForm = reduxForm({form: 'ProfileAddNewPostForm'})(AddNewPostForm)
 
 const MyPosts = (props) => {
     // debugger
@@ -9,26 +25,21 @@ const MyPosts = (props) => {
     const postsElements = messages.map(post => <Post message={post.message} like={post.like}/>)
 
     const newPostElement = React.createRef();
-    const onAddPost = () => {
+    const onAddPost = (values) => {
         // props.dispatch(addPostActionCreator());
-        props.addPost();
+        props.addPost(values.newPostText);
     }
 
-    const onPostChange = () => {
-        const text = newPostElement.current.value;
-        // props.dispatch(updateNewPostTextActionCreator(text));
-        props.updateNewPostText(text);
-    }
+    // const onPostChange = () => {
+    //     const text = newPostElement.current.value;
+    //     // props.dispatch(updateNewPostTextActionCreator(text));
+    //     props.updateNewPostText(text);
+    // }
+
     return (
         <div className={s.post__block}>
             <h3>My posts</h3>
-            <div className={s.post__add}>
-                <div>
-                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
-                </div>
-                <button onClick={ onAddPost }>Add post</button>
-                <button>Remove post</button>
-            </div>
+            <AddNewPostForm onSubmit={onAddPost}/>
             <div className={s.post}>
                 {postsElements}
             </div>

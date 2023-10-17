@@ -15,13 +15,18 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateNewMessageTextActionCreator: (text) => {
-            const action = updateNewMessageTextActionCreator(text);
-            dispatch(action);
+        sendMessage: (newMessage) => {
+            // debugger
+            dispatch(addMessageActionCreator(newMessage))
         },
-        sendMessage: () => {
-            dispatch(addMessageActionCreator())
-        }
+        // sendMessage: () => {
+        //     // debugger
+        //     dispatch(addMessageActionCreator())
+        // },
+        // updateNewMessageTextActionCreator: (text) => {
+        //     const action = updateNewMessageTextActionCreator(text);
+        //     dispatch(action);
+        // },
     }
 }
 
