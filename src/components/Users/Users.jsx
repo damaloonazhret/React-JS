@@ -2,8 +2,6 @@ import React from "react";
 import s from "./Users.module.scss";
 import userPhoto from "../../assets/img/user.png";
 import {NavLink} from "react-router-dom";
-import axios from "axios";
-import {usersAPI} from "../../api/api";
 
 const Users = (props) => {
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)

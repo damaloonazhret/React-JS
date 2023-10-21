@@ -43,5 +43,13 @@ export const headerAPI = {
     authMe() {
         return instance.get(`auth/me`)
             .then(r => r);
-    }
+    },
+    loginMe(email, password, rememberMe = false) {
+        return instance.post(`auth/login`, {email, password, rememberMe})
+            .then(r => r);
+    },
+    logout(email, password, rememberMe = false) {
+        return instance.delete(`auth/login`)
+            .then(r => r);
+    },
 }
