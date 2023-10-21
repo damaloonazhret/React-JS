@@ -4,6 +4,7 @@ const ADD_POST = 'ADD-POST';
 // const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE-NEW-POST-TEXT';
 const SET_STATUS = 'SET_STATUS';
+const DELETE_POST = 'DELETE_POST';
 
 let initialStateD = {
     messages: [
@@ -48,6 +49,11 @@ const profileReducer = (state = initialStateD, action) => {
                 status: action.status,
             }
         }
+        case DELETE_POST: {
+            return {
+                ...state, messages: state.messages.filter(p => p.id !== action.postId)
+            }
+        }
         default:
             return state;
     }
@@ -58,6 +64,7 @@ export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostTe
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 
 export const setStatus = (status) => ({type: SET_STATUS, status})
+export const deletePost = (postId) => ({type: DELETE_POST, postId})
 
 export const getUserProfile = (userId) => (dispatch) => {
     profileAPI.getProfile(userId)

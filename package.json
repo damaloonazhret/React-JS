@@ -42,6 +42,11 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-leaflet|@react-leaflet|d3-*|axios))"
+    ]
+  },
   "devDependencies": {
     "node-sass": "^9.0.0",
     "sass-loader": "^13.3.2"
