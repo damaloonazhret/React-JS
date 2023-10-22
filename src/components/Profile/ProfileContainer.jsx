@@ -39,7 +39,6 @@ class ProfileContainer extends React.Component {
 // wrapper to use React router's v6 hooks in class component(to use HOC pattern, like in router v5)
 function withRouter(Component) {
     function ComponentWithRouterProp(props) {
-        // debugger
         let location = useLocation();
         let navigate = useNavigate();
         let params = useParams();

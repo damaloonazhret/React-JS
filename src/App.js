@@ -1,7 +1,7 @@
 import './App.scss';
 import Navbar from "./components/Navbar/Navbar";
 import Dialogs from "./components/Dialogs/Dialogs";
-import {BrowserRouter, Route, Routes, useLocation, useNavigate, useParams} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -12,7 +12,6 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./Login/Login";
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {getAuthUserData} from "./Redux/authReducer";
 import {compose} from "redux";
 import {initializeApp} from "./Redux/appReducer";
 import Preloader from "./components/common/Preloader/Preloader";
@@ -24,7 +23,7 @@ class App extends Component<{}> {
     }
 
     render() {
-        if(!this.props.initialized) {
+        if (!this.props.initialized) {
             return <Preloader/>
         }
         return (
@@ -53,23 +52,6 @@ class App extends Component<{}> {
         )
     }
 }
-
-// function withRouter(Component) {
-//     function ComponentWithRouterProp(props) {
-//         // debugger
-//         let location = useLocation();
-//         let navigate = useNavigate();
-//         let params = useParams();
-//         return (
-//             <Component
-//                 {...props}
-//                 router={{location, navigate, params}}
-//             />
-//         );
-//     }
-//
-//     return ComponentWithRouterProp;
-// }
 
 const mapStateToProps = (state) => ({
     initialized: state.app.initialized

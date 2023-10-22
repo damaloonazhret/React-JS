@@ -12,9 +12,7 @@ let AddNewPostForm = (props) => {
         <form onSubmit={props.handleSubmit} className={s.post__add}>
             <div>
                 <Field component={Textarea} name={'newPostText'} validate={[maxLength10]} placeholder={'Post message'}/>
-                {/*<textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>*/}
             </div>
-            {/*<button onClick={onAddPost}>Add post</button>*/}
             <button>Add post</button>
         </form>
     )
@@ -23,7 +21,6 @@ let AddNewPostForm = (props) => {
 AddNewPostForm = reduxForm({form: 'ProfileAddNewPostForm'})(AddNewPostForm)
 
 const MyPosts = React.memo((props) => {
-    console.log('Render')
     const messages = props.messages;
 
     const postsElements = messages.map(post => <Post message={post.message} like={post.like}/>)

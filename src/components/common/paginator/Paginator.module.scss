@@ -1,0 +1,13 @@
+.selectPage {
+  font-weight: bold;
+}
+
+.pages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  span {
+    cursor: pointer;
+    font-size: 10px;
+  }
+}

@@ -18,7 +18,6 @@ test('length of messages should be incremented', () => {
 });
 
 
-
 test('after deleting length of messages should be decrement', () => {
     let action = deletePost(1)
     let initialStateD = {

@@ -2,7 +2,7 @@ import s from './ProfileInfo.module.scss'
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({status, updateStatus, ...props}) => {
 
     if (!props.profile) {
         return <Preloader/>
@@ -23,7 +23,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.description__block}>
                 <img src={profile.photos.large} alt=""/>
-                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
                 <h1>My name is {profile.fullName}</h1>
                 <div><span>About me: </span> {profile.aboutMe}</div>
                 <div><span>Website: </span> {website ? website : 'Сайтик отсутствует'}</div>
